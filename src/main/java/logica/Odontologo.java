@@ -2,10 +2,12 @@ package logica;
 
 import java.util.Date;
 import java.util.List;
+import javax.persistence.Entity;
 
+@Entity
 public class Odontologo extends Persona {
     
-    private int id_paciente;
+    //private int id_paciente;
     private String especialidad;
     private List<Turno> listaTurnos;
     private Usuario unUsuario;//esta es la relacion con otra clase
@@ -14,22 +16,31 @@ public class Odontologo extends Persona {
     public Odontologo() {
     }
 
-    public Odontologo(int id_paciente, String especialidad, List<Turno> listaTurnos, Usuario unUsuario, Horario unHorario, String dni, String nombre, String apellido, String telefono, String direccion, Date fecha_nac) {
+    public Odontologo(String especialidad, List<Turno> listaTurnos, Usuario unUsuario, Horario unHorario, String dni, String nombre, String apellido, String telefono, String direccion, Date fecha_nac) {
+        super(dni, nombre, apellido, telefono, direccion, fecha_nac);
+        this.especialidad = especialidad;
+        this.listaTurnos = listaTurnos;
+        this.unUsuario = unUsuario;
+        this.unHorario = unHorario;
+    }
+    
+
+    /*public Odontologo(int id_paciente, String especialidad, List<Turno> listaTurnos, Usuario unUsuario, Horario unHorario, String dni, String nombre, String apellido, String telefono, String direccion, Date fecha_nac) {
         super(dni, nombre, apellido, telefono, direccion, fecha_nac);
         this.id_paciente = id_paciente;
         this.especialidad = especialidad;
         this.listaTurnos = listaTurnos;
         this.unUsuario = unUsuario;
         this.unHorario = unHorario;
-    }
+    }*/
 
-    public int getId_paciente() {
+    /*public int getId_paciente() {
         return id_paciente;
-    }
+    }*/
 
-    public void setId_paciente(int id_paciente) {
+    /*public void setId_paciente(int id_paciente) {
         this.id_paciente = id_paciente;
-    }
+    }*/
 
     public String getEspecialidad() {
         return especialidad;
@@ -62,7 +73,5 @@ public class Odontologo extends Persona {
     public void setUnHorario(Horario unHorario) {
         this.unHorario = unHorario;
     }
-    
-    
-    
+     
 }
